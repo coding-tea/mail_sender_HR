@@ -2,10 +2,11 @@
 
 namespace src\Domain\DTOs;
 
+use App\Models\Email;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserDto extends DTO
+class EmailDto extends DTO
 {
 
     public function __construct(
@@ -30,18 +31,40 @@ class UserDto extends DTO
     public static function fromRequest(Request $request)
     {
         return new self(
-            name: $request->name,
+            company: $request->company,
+            group: $request->group,
+            city: $request->city,
+            activity: $request->activity,
+            person: $request->person,
+            function: $request->function,
+            tel: $request->tel,
+            tax: $request->tax,
+            fax: $request->fax,
+            gsm: $request->gsm,
             email: $request->email,
-            password: $request->password,
+            address: $request->address,
+            category_id: $request->category_id,
+            user_id: $request->user_id,
         );
     }
 
-    public static function fromModel(User $user)
+    public static function fromModel(Email $email)
     {
         return new self(
-            name: $user->name,
-            email: $user->email,
-            password: $user->password,
+            company: $email->company,
+            group: $email->group,
+            city: $email->city,
+            activity: $email->activity,
+            person: $email->person,
+            function: $email->function,
+            tel: $email->tel,
+            tax: $email->tax,
+            fax: $email->fax,
+            gsm: $email->gsm,
+            email: $email->email,
+            address: $email->address,
+            category_id: $email->category_id,
+            user_id: $email->user_id,
         );
     }
 }

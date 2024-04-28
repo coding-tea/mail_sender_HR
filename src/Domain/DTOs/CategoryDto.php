@@ -5,7 +5,7 @@ namespace src\Domain\DTOs;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class UserDto extends DTO
+class CategoryDto extends DTO
 {
 
     public function __construct(

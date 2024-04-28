@@ -5,7 +5,7 @@ namespace src\Domain\DTOs;
 use App\Models\Message;
 use Illuminate\Http\Request;
 
-class UserDto extends DTO
+class MessageDto extends DTO
 {
 
     public function __construct(

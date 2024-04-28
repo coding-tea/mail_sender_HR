@@ -5,7 +5,7 @@ namespace src\Domain\DTOs;
 use App\Models\SentEmail;
 use Illuminate\Http\Request;
 
-class UserDto extends DTO
+class SentEmailDto extends DTO
 {
 
     public function __construct(
