@@ -1,0 +1,14 @@
+-------->to->update->
+    -> main menu
+    -> main menu mobile
+
+-------->to->update->
+    -> sidbar menu
+    -> sidbar menu mobile
+
+-------->to->do->
+    -> data-table
+    -> setup user and profile service
+    -> complete profile page
+    -> make setting page
+    -> sxeet alerts
