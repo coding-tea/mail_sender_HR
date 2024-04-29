@@ -4,6 +4,7 @@ namespace src\Domain\Services;
 
 use App\Models\Message;
 use src\Domain\DTOs\MessageDto;
+use DOMDocument;
 
 class UserService extends Service
 {
@@ -19,9 +20,12 @@ class UserService extends Service
 
     public function store(MessageDto $dtos)
     {
+
+        $dom = new DOMDocument();
+        $dom->loadHTML($dtos->message, 9);
         $model = self::query()->create([
             "title" => $dtos->title,
-            "message" => $dtos->message,
+            "message" => $dom->saveHTML(),
             "user_id" => $dtos->user_id,
         ]);
 
@@ -40,9 +44,11 @@ class UserService extends Service
 
     public function update(Message $message, MessageDto $dtos)
     {
+        $dom = new DOMDocument();
+        $dom->loadHTML($dtos->message, 9);
         $message->create([
             "title" => $dtos->title,
-            "message" => $dtos->message,
+            "message" => $dom->saveHTML(),
         ]);
     }
 }
