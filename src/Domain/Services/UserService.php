@@ -1,11 +1,11 @@
 <?php
 
-namespace src\Domain\Services;
+namespace Domain\Services;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use src\Domain\DTOs\UserDto;
+use Domain\DTOs\UserDto;
 
 class UserService extends Service
 {

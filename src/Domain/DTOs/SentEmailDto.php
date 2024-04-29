@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Domain\DTOs;
+namespace Domain\DTOs;
 
 use App\Models\SentEmail;
 use Illuminate\Http\Request;

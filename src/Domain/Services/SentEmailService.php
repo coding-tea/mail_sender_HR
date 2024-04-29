@@ -1,10 +1,9 @@
 <?php
 
-namespace src\Domain\Services;
+namespace Domain\Services;
 
 use App\Models\SentEmail;
-use App\Models\User;
-use src\Domain\DTOs\SentEmailDto;
+use Domain\DTOs\SentEmailDto;
 
 class UserService extends Service
 {

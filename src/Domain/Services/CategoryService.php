@@ -1,9 +1,9 @@
 <?php
 
-namespace src\Domain\Services;
+namespace Domain\Services;
 
 use App\Models\Category;
-use src\Domain\DTOs\CategoryDto;
+use Domain\DTOs\CategoryDto;
 
 class CategoryService extends Service
 {

@@ -23,8 +23,12 @@
                             New</a>
                     </li>
                     <li>
-                        <a href="{{ $actions['DeleteSelected'] }}" class="block px-4 py-2 hover:bg-gray-100">Delete
-                            Selected</a>
+                        <button type="button" onclick="deleteSelectedBtn()" class="block px-4 py-2 hover:bg-gray-100">Delete
+                            Selected</button>
+                            <form action="{{ $actions['DeleteSelected'] }}" method="post">
+                                @csrf
+                                <button type="submit" id="DeleteSelected" style="display: none;"></button>
+                            </form>
                     </li>
                 </ul>
             </div>
@@ -32,7 +36,6 @@
     </div>
 
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 mt-5">
-
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
                 @php
@@ -75,13 +78,17 @@
                         @endforeach
 
                         <td class="px-6 py-4 text-end">
-                            <a href="{{ $showRoute }}"
+                            <a href="{{ route($showRoute, $value['id']) }}"
                                 class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">View</a>
                             <button onclick="deleteBtn()"
                                 class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-800 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
                                 <i class="bi bi-archive-fill"></i>
                             </button>
-                            <a href="{{ $deleteRoute }}" id="deleteLink" style="display: none"></a>
+
+                            <form action="{{ route($deleteRoute, $value['id']) }}" method="post">
+                                @csrf
+                                <button type="submit" id="deleteLink" style="display: none"></button>
+                            </form>
 
                         </td>
                     </tr>
@@ -120,6 +127,27 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 document.querySelector("#deleteLink").click();
+                // Swal.fire({
+                //     title: "Deleted!",
+                //     text: "Your file has been deleted.",
+                //     icon: "success"
+                // });
+            }
+        });
+    }
+
+    function deleteSelectedBtn() {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.querySelector("#DeleteSelected").click();
                 // Swal.fire({
                 //     title: "Deleted!",
                 //     text: "Your file has been deleted.",

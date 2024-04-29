@@ -10,14 +10,17 @@ class export_import extends Component
 {
     public $importRoute;
     public $exportRoute;
+    public $downloadRoute;
 
 
     public function __construct(
         $importRoute = "",
         $exportRoute = "",
+        $downloadRoute = "",
     ) {
         $this->importRoute = $importRoute;
         $this->exportRoute = $exportRoute;
+        $this->downloadRoute = $downloadRoute;
     }
 
     /**

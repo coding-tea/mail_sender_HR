@@ -1,10 +1,9 @@
 <div>
 
-    <form action="{{ $importRoute }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route($importRoute) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="flex items-center justify-center w-full" style="height: 100px">
-            <label for="dropzone-file"
-                class="flex flex-col items-center justify-center w-full cursor-pointer">
+            <label for="dropzone-file" class="flex flex-col items-center justify-center w-full cursor-pointer">
                 <div class="flex flex-col items-center justify-center pt-5 pb-6">
                     <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 20 16">
@@ -19,11 +18,17 @@
             </label>
         </div>
 
+        <div class="mt-5 max-w-sm mx-auto">
+            {!! $slot !!}
+        </div>
+
         <div class="flex mt-5 justify-center gap-2">
             <button type="submit"
                 class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Import</button>
-            <a href="{{ $exportRoute }}"
-                class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Export</a>
+                
+            <a href="{{ route($exportRoute) }}" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Export</a>
+
+            <a href="{{ route($downloadRoute) }}" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Download</a>
 
         </div>
     </form>

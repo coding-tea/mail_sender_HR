@@ -1,12 +1,11 @@
 <?php
 
-namespace src\Domain\Services;
+namespace Domain\Services;
 
 use App\Models\Email;
-use App\Models\User;
-use src\Domain\DTOs\EmailDto;
+use Domain\DTOs\EmailDto;
 
-class UserService extends Service
+class EmailService extends Service
 {
 
     public function __construct()

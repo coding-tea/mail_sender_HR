@@ -1,12 +1,12 @@
 <?php
 
-namespace src\Domain\Services;
+namespace Domain\Services;
 
 use App\Models\Message;
-use src\Domain\DTOs\MessageDto;
+use Domain\DTOs\MessageDto;
 use DOMDocument;
 
-class UserService extends Service
+class MessageService extends Service
 {
 
     public function __construct()

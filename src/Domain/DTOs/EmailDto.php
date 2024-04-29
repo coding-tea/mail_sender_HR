@@ -1,9 +1,8 @@
 <?php
 
-namespace src\Domain\DTOs;
+namespace Domain\DTOs;
 
 use App\Models\Email;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class EmailDto extends DTO

@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Domain\Services;
+namespace Domain\Services;
 
 class Service
 {
