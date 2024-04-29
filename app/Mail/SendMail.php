@@ -2,23 +2,25 @@
 
 namespace App\Mail;
 
+use App\Models\Message;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Queue\SerializesModels;
 
 class SendMail extends Mailable
 {
-    use Queueable, SerializesModels;
+
+    use Queueable, ShouldQueue;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
-    {
-        //
+    public function __construct(
+        public Message $message,
+    ) {
+        $this->message = $message;
     }
 
     /**
@@ -27,7 +29,8 @@ class SendMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Send Mail',
+            subject: $this->message->title,
+            // from: new Address("ismail@gmail.com", auth()->user()->name),
         );
     }
 
@@ -37,7 +40,8 @@ class SendMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'cv',
+            with: ["message_request" => $this->message]
         );
     }
 
@@ -48,6 +52,9 @@ class SendMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [
+            // Attachment::fromPath('/path/to/file'),
+        ];
     }
 }
+
